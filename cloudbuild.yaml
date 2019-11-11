@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 # This step clones the hello-cloudbuild-env repository
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Clone env repository
   entrypoint: /bin/sh
+=======
+steps:
+# This step builds the container image.
+- name: 'gcr.io/cloud-builders/docker'
+  id: Build
+>>>>>>> 3f5a0c1708a6f613b15b97887e4922f383865f10
   args:
   - '-c'
   - |
