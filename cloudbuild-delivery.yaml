@@ -9,7 +9,7 @@ steps:
   - 'kubernetes.yaml'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=webapp-cloudbuild'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=mycicd-app'
 
 # This step copies the applied manifest to the production branch
 # The COMMIT_SHA variable is automatically
