@@ -1,3 +1,4 @@
+steps:
 # This step clones the hello-cloudbuild-env repository
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Clone env repository
