@@ -6,8 +6,8 @@ steps:
   args:
   - '-c'
   - |
-    gcloud source repos clone webapp-cloudbuild-env && \
-    cd webapp-cloudbuild-env && \
+    gcloud source repos clone mycicd-app-env && \
+    cd mycicd-app-env && \
     git checkout candidate && \
     git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)')
 
@@ -19,7 +19,7 @@ steps:
   - '-c'
   - |
      sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" kubernetes.yaml.tpl | \
-     sed "s/COMMIT_SHA/${SHORT_SHA}/g" > webapp-cloudbuild-env/kubernetes.yaml
+     sed "s/COMMIT_SHA/${SHORT_SHA}/g" > mycicd-app-env/kubernetes.yaml
 
 # This step pushes the manifest back to hello-cloudbuild-env
 - name: 'gcr.io/cloud-builders/gcloud'
@@ -31,7 +31,7 @@ steps:
     set -x && \
     cd mycicd-app-env && \
     git add kubernetes.yaml && \
-    git commit -m "Deploying image gcr.io/${PROJECT_ID}/webapp-cloudbuild:${SHORT_SHA}
-    Built from commit ${COMMIT_SHA} of repository webapp-cloudbuild-app
+    git commit -m "Deploying image gcr.io/${PROJECT_ID}/mycicd-app-env:${SHORT_SHA}
+    Built from commit ${COMMIT_SHA} of repository mycicd-app-env
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
     git push origin candidate
