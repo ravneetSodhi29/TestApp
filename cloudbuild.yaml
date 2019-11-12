@@ -1,6 +1,6 @@
 # This step clones the hello-cloudbuild-env repository
 steps:
-- name: 'gcr.io/cloud-builders/gcloud'
+- name: 'gcr.io/cloud-builders/gcloud1'
   id: Clone env repository
   entrypoint: /bin/sh
   args:
