@@ -1,5 +1,4 @@
 # This step clones the hello-cloudbuild-env repository
-steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Clone env repository
   entrypoint: /bin/sh
@@ -29,10 +28,9 @@ steps:
   - '-c'
   - |
     set -x && \
-    cd webapp-cloudbuild-env && \
+    cd hello-cloudbuild-env && \
     git add kubernetes.yaml && \
     git commit -m "Deploying image gcr.io/${PROJECT_ID}/webapp-cloudbuild:${SHORT_SHA}
-    Built from commit ${COMMIT_SHA} of repository mycicd-app
+    Built from commit ${COMMIT_SHA} of repository webapp-cloudbuild-app
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
     git push origin candidate
-    
