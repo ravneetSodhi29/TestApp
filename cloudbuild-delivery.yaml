@@ -6,10 +6,10 @@ steps:
   args:
   - 'apply'
   - '-f'
-  
+  - 'kubernetes.yaml'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=hello-dotnet-cluster'
+  - 'CLOUDSDK_CONTAINER_CLUSTER= hello-dotnet-cluster'
 
 # This step copies the applied manifest to the production branch
 # The COMMIT_SHA variable is automatically
